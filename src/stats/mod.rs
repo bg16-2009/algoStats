@@ -27,9 +27,9 @@ impl std::ops::Add for Stats {
     }
 }
 
-pub fn get_all_stats(user: Identity) -> Stats {
-    return codeforces::get_stats(user.codeforces_username)
-        + infoarena::get_stats(user.infoarena_username)
-        + kilonova::get_stats(user.kilonova_username)
-        + pbinfo::get_stats(user.pbinfo_username);
+pub fn get_all_stats(user: Identity) -> Result<Stats, Box<dyn std::error::Error>> {
+    return Ok(codeforces::get_stats(user.codeforces_username)?
+        + infoarena::get_stats(user.infoarena_username)?
+        + kilonova::get_stats(user.kilonova_username)?
+        + pbinfo::get_stats(user.pbinfo_username)?);
 }

@@ -5,6 +5,6 @@ edition = "2021"
 
 [dependencies]
 chrono = "0.4.39"
-reqwest = { version="0.12.12", features = [ "json" ] }
+reqwest = { version="0.12.12", features = [ "json", "blocking" ] }
 serde = {version = "1.0.217", features = ["derive"] }
 tokio = { version="1.43.0", features = [ "full" ] }
